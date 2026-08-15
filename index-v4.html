@@ -102,11 +102,11 @@
 
     @keyframes mockFloat{
         0%,100%{transform:translateY(0) rotate(var(--r,0deg))}
-        50%{transform:translateY(-14px) rotate(calc(var(--r,0deg) * -1))}
+        50%{transform:translateY(-14px) rotate(var(--r,0deg))}
     }
-    .mock.m1{--r:-4deg;animation-delay:0s;z-index:3}
-    .mock.m2{--r:3deg;animation-delay:-2.3s;z-index:2}
-    .mock.m3{--r:-2deg;animation-delay:-4.6s;z-index:1}
+    .mock.m1{--r:-4deg;animation-delay:0s;z-index:3!important}
+    .mock.m2{--r:3deg;animation-delay:-2.3s;z-index:2!important}
+    .mock.m3{--r:-2deg;animation-delay:-4.6s;z-index:1!important}
     @media (prefers-reduced-motion:reduce){.mock{animation:none;transform:rotate(var(--r,0deg))}}
 
     .hero-stats{margin-top:70px;display:flex;justify-content:center;align-items:flex-end;gap:18px;flex-wrap:wrap;position:relative;z-index:1}
