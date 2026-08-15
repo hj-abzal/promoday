@@ -23,75 +23,174 @@
     body{
         font-family:"Manrope",sans-serif;
         background:
-            radial-gradient(circle at 82% 8%, rgba(166,245,66,.35), transparent 42%),
-            radial-gradient(circle at 8% 92%, rgba(252,227,234,.7), transparent 46%),
+            radial-gradient(circle at 88% 6%, rgba(166,245,66,.32), transparent 40%),
+            radial-gradient(circle at 4% 96%, rgba(252,227,234,.65), transparent 44%),
             var(--cream);
         color:var(--ink);
         position:relative;
+        padding:64px 64px 56px;
         display:flex;
         flex-direction:column;
-        justify-content:space-between;
-        padding:72px 76px 64px;
     }
-    .logo{font-family:"Fraunces",serif;font-size:30px;font-weight:700;letter-spacing:-.01em}
+    .logo{font-family:"Fraunces",serif;font-size:28px;font-weight:700;letter-spacing:-.01em}
     .logo span{color:var(--lime-deep)}
 
-    .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-2);opacity:.6}
-    .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime-deep)}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-2);opacity:.6;margin-top:36px}
+    .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--lime-deep)}
 
     h1{
         font-family:"Fraunces",serif;
         font-weight:700;
-        font-size:76px;
-        line-height:1.06;
-        letter-spacing:-.03em;
-        margin-top:30px;
+        font-size:58px;
+        line-height:1.08;
+        letter-spacing:-.028em;
+        margin-top:16px;
+        max-width:640px;
     }
     .marker{
         background:var(--lime);
         padding:.04em .16em;
-        border-radius:12px;
-        box-shadow:0 5px 0 rgba(15,43,34,.18);
+        border-radius:11px;
+        box-shadow:0 4px 0 rgba(15,43,34,.18);
         display:inline-block;
-        margin-top:.14em;
+        margin-top:.16em;
     }
 
-    .features{
-        margin-top:44px;
-        display:flex;
-        flex-wrap:wrap;
-        gap:14px;
+    .sub{
+        margin-top:22px;
+        font-size:22px;
+        font-weight:600;
+        opacity:.68;
+        max-width:520px;
+        line-height:1.4;
     }
-    .chip{
+
+    /* device mockups */
+    .devices{
+        position:absolute;
+        right:40px;
+        bottom:150px;
+        width:560px;
+        height:420px;
+    }
+    .laptop{
+        position:absolute;
+        left:0; top:0;
+        width:440px;
+    }
+    .laptop .screen{
+        background:var(--ink);
+        border-radius:14px 14px 4px 4px;
+        padding:10px 10px 0;
+    }
+    .laptop .inner{
+        background:var(--paper);
+        border-radius:8px 8px 0 0;
+        height:270px;
+        overflow:hidden;
+        position:relative;
+        padding:20px 22px;
+    }
+    .laptop .inner .mini-h{max-width:200px}
+    .laptop .inner .mini-p{max-width:200px}
+    .laptop .base{
+        height:14px;
+        background:linear-gradient(var(--ink-2),var(--ink));
+        border-radius:0 0 8px 8px;
+        margin-top:0;
+        position:relative;
+    }
+    .laptop .base::after{
+        content:"";
+        position:absolute;
+        left:50%; top:0;
+        transform:translateX(-50%);
+        width:70px; height:5px;
+        background:rgba(0,0,0,.25);
+        border-radius:0 0 4px 4px;
+    }
+
+    .mini-eyebrow{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;opacity:.45}
+    .mini-h{font-family:"Fraunces",serif;font-weight:700;font-size:26px;line-height:1.12;margin-top:8px;letter-spacing:-.02em}
+    .mini-marker{background:var(--lime);border-radius:5px;padding:0 .12em;display:inline-block;margin-top:2px}
+    .mini-p{font-size:11.5px;font-weight:600;opacity:.55;margin-top:10px;max-width:230px;line-height:1.4}
+    .mini-btn{margin-top:16px;display:inline-block;background:var(--ink);color:#fff;font-size:11px;font-weight:800;padding:9px 16px;border-radius:999px}
+    .mini-card{
+        position:absolute;
+        right:16px; bottom:16px;
+        width:110px;
+        border-radius:10px;
+        overflow:hidden;
         background:var(--paper);
         border:1px solid rgba(15,43,34,.1);
-        border-radius:999px;
-        padding:14px 24px;
-        font-size:22px;
-        font-weight:700;
-        box-shadow:0 6px 18px rgba(15,43,34,.06);
+        box-shadow:0 10px 20px rgba(15,43,34,.14);
+        transform:rotate(4deg);
+    }
+    .mini-card .bar{height:14px;background:var(--paper);border-bottom:1px solid rgba(15,43,34,.08);display:flex;align-items:center;gap:3px;padding:0 6px}
+    .mini-card .bar span{width:4px;height:4px;border-radius:50%;background:rgba(15,43,34,.2)}
+    .mini-card .block{height:38px;background:linear-gradient(150deg,var(--pink),var(--pink-deep))}
+    .mini-card .lines{padding:8px}
+    .mini-card .ln{height:4px;border-radius:2px;background:rgba(15,43,34,.14);margin-bottom:4px}
+    .mini-card .ln.w60{width:60%}
+    .mini-card .ln.w40{width:40%}
+
+    .phone{
+        position:absolute;
+        right:0; bottom:-14px;
+        width:158px;
+    }
+    .phone .frame{
+        background:var(--ink);
+        border-radius:26px;
+        padding:9px;
+        box-shadow:0 20px 40px rgba(15,43,34,.3);
+    }
+    .phone .pscreen{
+        background:var(--paper);
+        border-radius:18px;
+        height:300px;
+        overflow:hidden;
+        position:relative;
+        padding:18px 14px;
+    }
+    .phone .notch{
+        position:absolute; top:9px; left:50%; transform:translateX(-50%);
+        width:44px; height:5px; border-radius:4px; background:rgba(15,43,34,.35);
+    }
+    .phone .mini-eyebrow{font-size:8px;margin-top:8px}
+    .phone .mini-h{font-size:17px; margin-top:6px}
+    .phone .mini-p{font-size:9px; margin-top:8px; max-width:120px}
+    .phone .mini-btn{font-size:9px; padding:7px 12px; margin-top:12px}
+    .phone .mini-photo{
+        margin-top:14px;
+        height:60px;
+        border-radius:8px;
+        background:linear-gradient(150deg,var(--aqua),var(--slate));
     }
 
     .footer{
+        margin-top:auto;
         display:flex;
         align-items:center;
         justify-content:space-between;
         gap:24px;
+        position:relative;
+        z-index:1;
     }
     .footer p{
-        font-size:23px;
+        font-size:22px;
         font-weight:600;
         opacity:.68;
-        max-width:600px;
+        max-width:520px;
         line-height:1.4;
     }
     .cta{
         flex:none;
         background:var(--ink);
         color:#fff;
-        font-size:22px;
+        font-size:21px;
         font-weight:800;
-        padding:20px 34px;
+        padding:19px 32px;
         border-radius:999px;
         white-space:nowrap;
     }
@@ -100,14 +199,41 @@
 <body>
     <div class="logo">promo<span>/</span>day</div>
 
-    <div>
-        <div class="eyebrow">6 лет делаем сайты, которые продают</div>
-        <h1>Сайт под рекламу.<br><span class="marker">За&nbsp;1&nbsp;день. От&nbsp;50&nbsp;000&nbsp;₸.</span></h1>
-        <div class="features">
-            <div class="chip">Сайт</div>
-            <div class="chip">Мета пиксель</div>
-            <div class="chip">CRM</div>
-            <div class="chip">Хостинг</div>
+    <div class="eyebrow">под ключ, за 1 день</div>
+    <h1>Сайт под рекламу<br>под ключ.<br><span class="marker">От&nbsp;50&nbsp;000&nbsp;₸.</span></h1>
+    <div class="sub">Один дизайн — одинаково чётко работает и на компьютере, и на телефоне.</div>
+
+    <div class="devices">
+        <div class="laptop">
+            <div class="screen">
+                <div class="inner">
+                    <div class="mini-eyebrow">6 лет опыта</div>
+                    <div class="mini-h">Сайт под<br>рекламу.<br><span class="mini-marker">За 1 день.</span></div>
+                    <div class="mini-p">Тексты, визуалы, Pixel и CRM — всё включено.</div>
+                    <div class="mini-btn">Запустить лендинг</div>
+                    <div class="mini-card">
+                        <div class="bar"><span></span><span></span><span></span></div>
+                        <div class="block"></div>
+                        <div class="lines">
+                            <div class="ln w60"></div>
+                            <div class="ln w40"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="base"></div>
+        </div>
+        <div class="phone">
+            <div class="frame">
+                <div class="pscreen">
+                    <div class="notch"></div>
+                    <div class="mini-eyebrow">6 лет опыта</div>
+                    <div class="mini-h">Сайт под<br>рекламу.<br><span class="mini-marker">За 1 день.</span></div>
+                    <div class="mini-photo"></div>
+                    <div class="mini-p">Всё включено в тариф.</div>
+                    <div class="mini-btn">Запустить</div>
+                </div>
+            </div>
         </div>
     </div>
 
