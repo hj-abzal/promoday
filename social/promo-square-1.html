@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+    :root{
+        --ink:#0f2b22;
+        --ink-2:#173f31;
+        --lime:#a6f542;
+        --lime-deep:#5fae1e;
+        --pink:#fce3ea;
+        --pink-deep:#f0b8c9;
+        --slate:#6b8f91;
+        --aqua:#8bc9cc;
+        --cream:#fbfbf4;
+        --paper:#ffffff;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{width:1080px;height:1080px;overflow:hidden}
+    body{
+        font-family:"Manrope",sans-serif;
+        background:
+            radial-gradient(circle at 82% 8%, rgba(166,245,66,.35), transparent 42%),
+            radial-gradient(circle at 8% 92%, rgba(252,227,234,.7), transparent 46%),
+            var(--cream);
+        color:var(--ink);
+        position:relative;
+        display:flex;
+        flex-direction:column;
+        justify-content:space-between;
+        padding:72px 76px 64px;
+    }
+    .logo{font-family:"Fraunces",serif;font-size:30px;font-weight:700;letter-spacing:-.01em}
+    .logo span{color:var(--lime-deep)}
+
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:17px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-2);opacity:.6}
+    .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime-deep)}
+
+    h1{
+        font-family:"Fraunces",serif;
+        font-weight:700;
+        font-size:76px;
+        line-height:1.06;
+        letter-spacing:-.03em;
+        margin-top:30px;
+    }
+    .marker{
+        background:var(--lime);
+        padding:.04em .16em;
+        border-radius:12px;
+        box-shadow:0 5px 0 rgba(15,43,34,.18);
+        display:inline-block;
+        margin-top:.14em;
+    }
+
+    .features{
+        margin-top:44px;
+        display:flex;
+        flex-wrap:wrap;
+        gap:14px;
+    }
+    .chip{
+        background:var(--paper);
+        border:1px solid rgba(15,43,34,.1);
+        border-radius:999px;
+        padding:14px 24px;
+        font-size:22px;
+        font-weight:700;
+        box-shadow:0 6px 18px rgba(15,43,34,.06);
+    }
+
+    .footer{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:24px;
+    }
+    .footer p{
+        font-size:23px;
+        font-weight:600;
+        opacity:.68;
+        max-width:600px;
+        line-height:1.4;
+    }
+    .cta{
+        flex:none;
+        background:var(--ink);
+        color:#fff;
+        font-size:22px;
+        font-weight:800;
+        padding:20px 34px;
+        border-radius:999px;
+        white-space:nowrap;
+    }
+</style>
+</head>
+<body>
+    <div class="logo">promo<span>/</span>day</div>
+
+    <div>
+        <div class="eyebrow">6 лет делаем сайты, которые продают</div>
+        <h1>Сайт под рекламу.<br><span class="marker">За&nbsp;1&nbsp;день. От&nbsp;50&nbsp;000&nbsp;₸.</span></h1>
+        <div class="features">
+            <div class="chip">Сайт</div>
+            <div class="chip">Мета пиксель</div>
+            <div class="chip">CRM</div>
+            <div class="chip">Хостинг</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Обсудим сегодня — завтра увидите готовый лендинг.</p>
+        <div class="cta">Написать →</div>
+    </div>
+</body>
+</html>
