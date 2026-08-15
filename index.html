@@ -82,7 +82,7 @@
     .hero-actions .hint{align-self:center;font-size:13px;font-weight:600;opacity:.5}
 
     .hero-mockups{position:relative;height:420px}
-    .mock{position:absolute;width:230px;border-radius:16px;overflow:hidden;background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow-lift);animation:mockFloat 7s ease-in-out infinite}
+    .mock{position:absolute;width:230px;border-radius:16px;overflow:hidden;background:var(--paper);border:1px solid var(--line);box-shadow:var(--shadow-lift);animation:mockFloat 7.2s ease-in-out infinite, mockOrder 7.2s linear infinite}
     .mock:hover{animation-play-state:paused;transform:translateY(-8px) scale(1.03) !important;transition:transform .25s ease}
     .mock .bar{display:flex;align-items:center;gap:5px;padding:9px 12px;border-bottom:1px solid var(--line);position:relative;z-index:2;background:var(--paper)}
     .mock .bar span{width:6px;height:6px;border-radius:50%;background:var(--line)}
@@ -115,11 +115,16 @@
 
     @keyframes mockFloat{
         0%,100%{transform:translateY(0) rotate(var(--r,0deg))}
-        50%{transform:translateY(-14px) rotate(var(--r,0deg))}
+        50%{transform:translateY(-16px) rotate(var(--r,0deg))}
     }
-    .mock.m1{--r:-4deg;animation-delay:0s;z-index:3!important}
-    .mock.m2{--r:3deg;animation-delay:-2.3s;z-index:2!important}
-    .mock.m3{--r:-2deg;animation-delay:-4.6s;z-index:1!important}
+    @keyframes mockOrder{
+        0%,33.2%{z-index:3}
+        33.4%,66.5%{z-index:2}
+        66.7%,100%{z-index:1}
+    }
+    .mock.m1{--r:-4deg;animation-delay:0s,0s}
+    .mock.m2{--r:3deg;animation-delay:-2.4s,-2.4s}
+    .mock.m3{--r:-2deg;animation-delay:-4.8s,-4.8s}
     @media (prefers-reduced-motion:reduce){.mock{animation:none;transform:rotate(var(--r,0deg))}}
 
     .hero-stats{margin-top:70px;display:flex;justify-content:center;align-items:flex-end;gap:18px;flex-wrap:wrap;position:relative;z-index:1}
