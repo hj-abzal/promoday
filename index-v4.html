@@ -73,12 +73,11 @@
     .mock:hover{transform:translateY(-6px) rotate(0deg) !important}
     .mock .bar{display:flex;align-items:center;gap:5px;padding:9px 12px;border-bottom:1px solid var(--line)}
     .mock .bar span{width:6px;height:6px;border-radius:50%;background:var(--line)}
-    .mock .hero-block{height:96px;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:16px}
-    .mock .ln{height:8px;border-radius:4px;background:rgba(15,43,34,.16)}
-    .mock .ln.w60{width:60%}
-    .mock .ln.w40{width:40%}
-    .mock .cta{margin:14px 16px 0;height:22px;width:74px;border-radius:7px;background:var(--ink)}
-    .mock .photo{height:70px;margin:0 16px 16px;border-radius:10px}
+    .mock .hero-block{height:96px;display:flex;flex-direction:column;justify-content:center;padding:16px}
+    .mock .hero-block .headline{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:17px;line-height:1.18;color:var(--ink)}
+    .mock .hero-block.dark .headline{color:var(--ink)}
+    .mock .cta{margin:14px 16px 0;padding:6px 14px;border-radius:7px;background:var(--ink);color:#fff;font-size:11.5px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;width:fit-content}
+    .mock .photo{height:64px;margin:0 16px 16px;border-radius:10px}
     .mock.m1{left:0;top:0;transform:rotate(-4deg);z-index:3}
     .mock.m1 .hero-block{background:linear-gradient(150deg,var(--pink),var(--pink-deep))}
     .mock.m2{left:150px;top:150px;transform:rotate(3deg);z-index:2}
@@ -272,23 +271,23 @@
             <div class="hero-mockups">
                 <div class="mock m1">
                     <div class="bar"><span></span><span></span><span></span></div>
-                    <div class="hero-block"><div class="ln w60"></div><div class="ln w40"></div></div>
+                    <div class="hero-block dark"><div class="headline">Скидка 20%<br>только сегодня</div></div>
                     <div class="photo" style="background:linear-gradient(150deg,var(--pink),var(--aqua))"></div>
-                    <div class="cta"></div>
+                    <div class="cta">Забрать скидку</div>
                     <div style="height:14px"></div>
                 </div>
                 <div class="mock m2">
                     <div class="bar"><span></span><span></span><span></span></div>
-                    <div class="hero-block"><div class="ln w60"></div><div class="ln w40"></div></div>
+                    <div class="hero-block dark"><div class="headline">Бесплатная<br>консультация</div></div>
                     <div class="photo" style="background:linear-gradient(150deg,var(--lime-deep),var(--ink))"></div>
-                    <div class="cta"></div>
+                    <div class="cta">Записаться</div>
                     <div style="height:14px"></div>
                 </div>
                 <div class="mock m3">
                     <div class="bar"><span></span><span></span><span></span></div>
-                    <div class="hero-block"><div class="ln w60"></div><div class="ln w40"></div></div>
+                    <div class="hero-block dark"><div class="headline">Новая коллекция<br>уже в продаже</div></div>
                     <div class="photo" style="background:linear-gradient(150deg,var(--pink-deep),var(--lime))"></div>
-                    <div class="cta"></div>
+                    <div class="cta">Смотреть</div>
                     <div style="height:14px"></div>
                 </div>
             </div>
