@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Optimizely — свобода для роста</title>
+    <meta name="description" content="Русская адаптация лендинга в стилистике Optimizely." />
+    <style>
+        :root{
+            --ink:#073b2d;
+            --ink-2:#0a4a39;
+            --lime:#b8ff43;
+            --mint:#edf5e6;
+            --aqua:#8be4e3;
+            --pink:#f29ab3;
+            --coral:#f08ca4;
+            --cream:#fbfbf4;
+            --black:#0b2e24;
+            --line:rgba(7,59,45,.18);
+            --radius:20px;
+        }
+        *{box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif;overflow-x:hidden}
+        a{color:inherit;text-decoration:none}
+        button,input,select,textarea{font:inherit}
+        img{max-width:100%;display:block}
+        .container{width:min(1180px,calc(100% - 48px));margin-inline:auto}
+        .eyebrow{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.12em}
+        .display{font-family:"Arial Black",Arial,sans-serif;letter-spacing:-.06em;line-height:.9;margin:0}
+        .marker{display:inline-block;background:var(--lime);padding:.02em .09em .09em;transform:rotate(-2deg);box-shadow:0 .04em 0 rgba(7,59,45,.16)}
+        .button{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1.5px solid var(--ink);background:var(--lime);padding:12px 17px;border-radius:8px;font-weight:800;box-shadow:2px 2px 0 var(--ink);transition:.18s ease;cursor:pointer}
+        .button:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
+        .button.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+        .button.white{background:#fff}
+        .topbar{background:var(--lime);padding:8px 0;border-bottom:1px solid rgba(0,0,0,.1);font-size:12px;font-weight:800;text-align:center}
+        .hero{position:relative;min-height:720px;background:linear-gradient(180deg,#e8a0b4 0%,#e7aaad 28%,#abd8dc 74%,#8ddde0 100%);overflow:hidden;border-bottom-left-radius:26px;border-bottom-right-radius:26px}
+        .nav{height:72px;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:5}
+        .logo{font-family:"Arial Black",Arial,sans-serif;font-size:27px;letter-spacing:-.08em;color:var(--ink)}
+        .navlinks{display:flex;gap:26px;align-items:center;font-size:13px;font-weight:800}
+        .nav-cta{border:1px solid var(--ink);background:var(--lime);padding:9px 13px;border-radius:6px}
+        .hero-content{position:relative;z-index:3;padding-top:45px}
+        .hero h1{font-size:clamp(64px,9vw,128px);max-width:880px;color:var(--lime);text-shadow:0 3px 0 rgba(7,59,45,.8);transform:rotate(-2deg)}
+        .hero h1 .marker{color:var(--ink);text-shadow:none}
+        .hero-sub{max-width:480px;margin-top:28px;font-size:19px;line-height:1.25;font-weight:700}
+        .hero-actions{display:flex;gap:14px;margin-top:22px}
+        .hero-photo{position:absolute;right:3%;bottom:-90px;width:min(48vw,570px);aspect-ratio:.83/1;border-radius:47% 47% 8% 8%;overflow:hidden;z-index:2;filter:saturate(.9) contrast(1.03);box-shadow:0 -10px 0 rgba(184,255,67,.14)}
+        .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+        .scribble{position:absolute;left:4%;bottom:90px;width:45%;height:100px;border-top:3px solid rgba(184,255,67,.9);border-radius:50%;transform:rotate(-4deg);opacity:.85}
+        .lead-card{position:relative;z-index:7;margin:-45px auto 65px;width:min(1040px,calc(100% - 36px));background:#f59bb1;border:2px solid var(--ink);border-radius:16px;box-shadow:5px 5px 0 var(--ink);padding:22px 24px;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
+        .lead-card h2{margin:0 0 7px;font-size:24px;letter-spacing:-.03em}
+        .lead-card p{margin:0;font-size:14px;max-width:650px}
+        .logos{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin:0 auto 88px}
+        .logo-pill{padding:10px 16px;border:1px solid var(--line);border-radius:7px;background:#fff;font-weight:800;font-size:12px;color:#5b786f}
+        .section{padding:88px 0}
+        .section-title{text-align:center;margin-bottom:44px}
+        .section-title h2{font-size:clamp(44px,6.3vw,80px)}
+        .section-title p{margin:18px auto 0;max-width:690px;font-size:17px;line-height:1.45}
+        .tool-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+        .tool-card{background:#fff;border:1.5px solid var(--ink);border-radius:12px;padding:16px;box-shadow:3px 3px 0 rgba(7,59,45,.2);display:flex;flex-direction:column;gap:16px}
+        .mock-browser{border:1px solid #a9beb6;border-radius:8px;overflow:hidden;background:#edf3ef;aspect-ratio:1.5/1;display:grid;grid-template-rows:22px 1fr}
+        .browser-top{background:#d4ded9;border-bottom:1px solid #b4c5bd;display:flex;gap:5px;align-items:center;padding:0 8px}.dot{width:6px;height:6px;border-radius:50%;background:#7f9b90}
+        .browser-page{padding:12px;display:grid;grid-template-columns:1.1fr .9fr;gap:8px}.mini-panel{border-radius:5px;background:#fff;border:1px solid #c7d4cf}.mini-panel.big{background:linear-gradient(150deg,#f0a7b7 0 40%,#9ad9db 40%)}
+        .tool-card h3{font-size:22px;margin:0;letter-spacing:-.04em}.tool-card p{font-size:14px;line-height:1.45;margin:0;color:#345d50}.tool-card .button{margin-top:auto;align-self:flex-start;font-size:12px;padding:9px 12px}
+        .ai-section{background:var(--ink);color:#fff;border-radius:34px 34px 0 0;overflow:hidden;padding-bottom:110px}
+        .ai-section .section-title h2{color:#fff}.ai-section .marker{color:var(--ink)}
+        .orbit{height:480px;position:relative;margin-top:40px}
+        .ring{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:1px solid rgba(255,255,255,.35);border-radius:50%}
+        .ring.r1{width:250px;height:250px}.ring.r2{width:365px;height:365px}.ring.r3{width:470px;height:470px}
+        .core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:125px;height:125px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#fff 0 5%,#b8ff43 18%,#64dfe2 45%,#e47cad 70%,#64266b 100%);border:5px solid rgba(255,255,255,.85);font-family:"Arial Black";font-size:31px;color:var(--ink)}
+        .orb{position:absolute;width:64px;height:64px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#b8ff43 36%,#70d6d7 65%,#76426f);border:3px solid #fff;box-shadow:0 0 0 5px rgba(184,255,67,.12)}
+        .o1{left:20%;top:18%}.o2{right:18%;top:28%}.o3{left:14%;bottom:18%}.o4{right:21%;bottom:12%}
+        .orb-label{position:absolute;background:#fff;color:var(--ink);border-radius:8px;padding:8px 10px;font-size:11px;font-weight:800;box-shadow:2px 2px 0 var(--lime)}
+        .l1{left:7%;top:24%}.l2{right:5%;top:43%}.l3{left:11%;bottom:9%}.l4{right:10%;bottom:6%}
+        .platform{background:#eff5e7;padding:84px 0}
+        .platform-intro{text-align:center;max-width:850px;margin:0 auto 50px}.platform-intro h2{font-size:clamp(43px,6vw,72px)}.platform-intro p{max-width:650px;margin:18px auto;line-height:1.5}
+        .feature-icons{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:48px}
+        .feature-icon{text-align:center}.icon-art{height:110px;display:grid;place-items:center;margin-bottom:12px;position:relative}.blob{width:72px;height:72px;border:2px solid var(--ink);border-radius:50% 43% 55% 45%;background:#fff;box-shadow:10px 7px 0 #f7a0b4}.feature-icon:nth-child(2) .blob{box-shadow:10px 7px 0 #8be4e3}.feature-icon:nth-child(3) .blob{box-shadow:10px 7px 0 #b8ff43}.feature-icon:nth-child(4) .blob{box-shadow:10px 7px 0 #f2dd68}.feature-icon h4{margin:0 0 8px;font-size:18px}.feature-icon p{font-size:13px;line-height:1.4;margin:0;color:#40655a}
+        .paths{background:#fff;padding:100px 0}.paths .section-title{margin-bottom:65px}.path-row{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;margin:55px 0;padding:15px 0}.path-row:nth-child(even) .path-copy{order:2}.path-row:nth-child(even) .path-art{order:1}
+        .path-copy{background:#edf5e8;border-radius:14px;padding:28px;border:1px solid #d2e1d7}.path-copy h3{font-size:30px;margin:0 0 14px;letter-spacing:-.04em}.path-copy p{line-height:1.5;color:#34594e}.path-art{min-height:250px;position:relative;display:grid;place-items:center}.cluster{position:relative;width:220px;height:180px}.bubble{position:absolute;border:2px solid var(--ink);border-radius:50%;background:#fff;width:76px;height:76px;box-shadow:7px 7px 0 #8be4e3}.bubble:nth-child(1){left:0;top:55px}.bubble:nth-child(2){left:70px;top:5px;box-shadow:7px 7px 0 #f29ab3}.bubble:nth-child(3){right:0;top:65px;box-shadow:7px 7px 0 #b8ff43}.bubble:nth-child(4){left:83px;bottom:0;box-shadow:7px 7px 0 #f2dd68}
+        .stories{padding:88px 0;background:#fff}.story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.story-card{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#f8faf7}.story-img{aspect-ratio:1.45/1;background-size:cover;background-position:center}.story-card:nth-child(1) .story-img{background-image:url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80')}.story-card:nth-child(2) .story-img{background-image:url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80')}.story-card:nth-child(3) .story-img{background-image:url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=900&q=80')}.story-body{padding:18px}.story-body strong{font-size:28px;display:block;letter-spacing:-.04em}.story-body p{margin:7px 0 0;line-height:1.4;color:#34594e}
+        .cta-photo{position:relative;background:linear-gradient(90deg,rgba(8,61,46,.08),rgba(8,61,46,.1)),url('https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1800&q=85') center/cover;min-height:570px;display:flex;align-items:center;overflow:hidden}.cta-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,230,159,.35),rgba(154,224,225,.2))}.cta-content{position:relative;z-index:2}.cta-content h2{font-size:clamp(54px,7vw,92px);max-width:760px;color:var(--lime);text-shadow:0 3px 0 var(--ink);transform:rotate(-2deg)}.cta-content p{max-width:540px;font-size:18px;line-height:1.5;font-weight:700}.float-note{display:inline-block;margin:16px 0;background:#fff;border:1px solid var(--ink);padding:10px 12px;border-radius:8px;box-shadow:3px 3px 0 var(--ink);font-size:13px;font-weight:800}
+        .contact{background:var(--ink);padding:72px 0;color:#fff}.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px}.contact-media{border-radius:14px;overflow:hidden;min-height:390px;background:url('https://images.unsplash.com/photo-1494256997604-768d1f608cac?auto=format&fit=crop&w=1100&q=80') center/cover;position:relative}.contact-media:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(7,59,45,.5))}.form-card{background:#d7eee8;color:var(--ink);border-radius:14px;padding:24px;border:2px solid #fff}.form-card h3{margin:0 0 18px;font-size:24px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form-grid .full{grid-column:1/-1}.form-card label{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;display:block;margin-bottom:5px}.form-card input,.form-card textarea,.form-card select{width:100%;border:1px solid #84a99d;background:#f8fffc;border-radius:6px;padding:11px 10px;outline:none}.form-card textarea{min-height:95px;resize:vertical}.form-card .button{margin-top:14px;width:100%}
+        footer{background:#8be4e3;padding:44px 0 20px;color:var(--ink)}.footer-grid{display:grid;grid-template-columns:1.2fr repeat(3,.7fr);gap:28px}.footer-grid h4{font-size:13px;margin:0 0 14px}.footer-grid a{display:block;font-size:12px;margin:8px 0;color:#305e53}.newsletter{background:rgba(255,255,255,.35);border:1px solid rgba(7,59,45,.25);padding:15px;border-radius:8px;margin-top:18px}.big-logo{font-family:"Arial Black",Arial,sans-serif;font-size:clamp(70px,13vw,165px);line-height:.82;letter-spacing:-.09em;color:var(--lime);text-shadow:0 3px 0 var(--ink);margin-top:50px}.footer-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:11px;margin-top:28px;padding-top:16px;border-top:1px solid rgba(7,59,45,.25)}
+        .mobile-menu{display:none}
+        @media(max-width:900px){
+            .container{width:min(100% - 32px,720px)}.navlinks{display:none}.mobile-menu{display:block;font-weight:900}.hero{min-height:650px}.hero-content{padding-top:25px}.hero h1{font-size:clamp(58px,14vw,95px);max-width:580px}.hero-sub{font-size:16px;max-width:350px}.hero-photo{width:58vw;right:-8%;bottom:-42px}.scribble{display:none}.lead-card{grid-template-columns:1fr}.tool-grid{grid-template-columns:1fr}.ai-section{border-radius:24px 24px 0 0}.orbit{transform:scale(.83);margin-inline:-50px}.feature-icons{grid-template-columns:1fr 1fr}.path-row{grid-template-columns:1fr;gap:20px}.path-row:nth-child(even) .path-copy,.path-row:nth-child(even) .path-art{order:initial}.story-grid{grid-template-columns:1fr}.contact-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}
+        }
+        @media(max-width:560px){
+            .topbar{font-size:10px;padding:7px 12px}.hero{min-height:560px;border-radius:0 0 18px 18px}.nav{height:58px}.logo{font-size:21px}.hero-content{padding-top:18px}.hero h1{font-size:clamp(49px,16vw,78px);max-width:420px}.hero-sub{font-size:14px;max-width:250px}.hero-actions{flex-direction:column;align-items:flex-start}.hero-photo{width:69vw;right:-24%;bottom:-8px}.lead-card{margin-top:-28px;padding:18px}.lead-card h2{font-size:20px}.logos{margin-bottom:55px}.section{padding:60px 0}.section-title{margin-bottom:30px}.section-title h2{font-size:42px}.section-title p{font-size:14px}.tool-card h3{font-size:20px}.ai-section{padding-bottom:55px}.orbit{height:320px;transform:scale(.62);margin:-25px -120px}.platform{padding:58px 0}.feature-icons{grid-template-columns:1fr;gap:28px}.paths{padding:62px 0}.path-row{margin:25px 0}.path-copy{padding:21px}.path-copy h3{font-size:25px}.story-body strong{font-size:24px}.cta-photo{min-height:520px}.cta-content h2{font-size:54px;max-width:340px}.cta-content p{font-size:15px;max-width:300px}.contact{padding:48px 0}.contact-media{min-height:260px}.form-grid{grid-template-columns:1fr}.form-grid .full{grid-column:auto}.footer-grid{grid-template-columns:1fr}.footer-grid>div:first-child{grid-column:auto}.big-logo{font-size:76px;margin-top:35px}.footer-bottom{display:block}.footer-bottom div+div{margin-top:8px}
+        }
+    </style>
+</head>
+<body>
+<div class="topbar">НОВОЕ: ИИ-ПЛАТФОРМА ДЛЯ МАРКЕТИНГА — СОЗДАВАЙТЕ, ТЕСТИРУЙТЕ И РАСТИТЕ БЫСТРЕЕ</div>
+<header class="hero">
+    <div class="container nav">
+        <a class="logo" href="#">Optimizely</a>
+        <nav class="navlinks">
+            <a href="#tools">Продукты</a><a href="#platform">Решения</a><a href="#stories">Кейсы</a><a href="#contact">Ресурсы</a><a href="#contact">Войти</a><a class="nav-cta" href="#contact">Начать</a>
+        </nav>
+        <div class="mobile-menu">МЕНЮ</div>
+    </div>
+    <div class="container hero-content">
+        <div class="eyebrow">Платформа цифрового роста</div>
+        <h1 class="display">Свобода <br>для <span class="marker">роста</span></h1>
+        <p class="hero-sub">Создавайте контент, запускайте эксперименты и подключайте ИИ — в одном месте, без лишней рутины.</p>
+        <div class="hero-actions"><a class="button" href="#platform">Посмотреть платформу →</a><a class="button white" href="#contact">Получить демо</a></div>
+    </div>
+    <div class="hero-photo"><img alt="Портрет" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1100&q=85"></div>
+    <div class="scribble"></div>
+</header>
+
+<section class="lead-card">
+    <div><h2>Освободите команду от рутины</h2><p>Одна платформа объединяет управление контентом, персонализацию, эксперименты и ИИ. Больше времени на идеи — меньше на ручные процессы.</p></div>
+    <a class="button dark" href="#contact">Начать рост →</a>
+</section>
+
+<div class="container logos" aria-label="Клиенты"><span class="logo-pill">MICROSOFT</span><span class="logo-pill">VISA</span><span class="logo-pill">SAMSUNG</span><span class="logo-pill">ZOOM</span><span class="logo-pill">H&M</span><span class="logo-pill">EBAY</span></div>
+
+<section class="section" id="tools">
+    <div class="container">
+        <div class="section-title"><div class="eyebrow">Инструменты</div><h2 class="display">Всё, чтобы <span class="marker">расти снова</span></h2></div>
+        <div class="tool-grid">
+            <article class="tool-card"><div class="mock-browser"><div class="browser-top"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div><div class="browser-page"><div class="mini-panel big"></div><div class="mini-panel"></div><div class="mini-panel"></div><div class="mini-panel"></div></div></div><div><div class="eyebrow">Agentic CMS</div><h3>Дайте авторам создавать</h3></div><p>Публикуйте быстрее, поддерживайте качество сайта и автоматизируйте повторяющиеся задачи.</p><a href="#contact" class="button">Создавать →</a></article>
+            <article class="tool-card"><div class="mock-browser"><div class="browser-top"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div><div class="browser-page"><div class="mini-panel"></div><div class="mini-panel big" style="background:linear-gradient(160deg,#b8ff43,#8be4e3)"></div><div class="mini-panel"></div><div class="mini-panel"></div></div></div><div><div class="eyebrow">Эксперименты</div><h3>Превращайте трафик в доход</h3></div><p>Тестируйте, персонализируйте и улучшайте опыт — а затем доказывайте влияние цифрами.</p><a href="#contact" class="button">Тестировать →</a></article>
+            <article class="tool-card"><div class="mock-browser"><div class="browser-top"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div><div class="browser-page"><div class="mini-panel big" style="background:linear-gradient(160deg,#7050a5,#f29ab3)"></div><div class="mini-panel"></div><div class="mini-panel"></div><div class="mini-panel"></div></div></div><div><div class="eyebrow">Agent Platform</div><h3>Поручите работу ИИ-агентам</h3></div><p>Автоматизируйте процессы, снимайте узкие места и масштабируйтесь без лишнего найма.</p><a href="#contact" class="button">Автоматизировать →</a></article>
+        </div>
+    </div>
+</section>
+
+<section class="section ai-section">
+    <div class="container"><div class="section-title"><div class="eyebrow">ИИ, который работает</div><h2 class="display">ИИ делает вас <span class="marker">неостановимыми</span></h2><p>Ваши идеи остаются человеческими. Рутину, анализ и повторяющиеся операции берет на себя цифровая команда.</p><a class="button" href="#contact">Попробовать →</a></div>
+        <div class="orbit"><div class="ring r3"></div><div class="ring r2"></div><div class="ring r1"></div><div class="core">AI</div><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div><div class="orb o4"></div><span class="orb-label l1">Контент-агент</span><span class="orb-label l2">Аналитик</span><span class="orb-label l3">Персонализация</span><span class="orb-label l4">Эксперименты</span></div>
+    </div>
+</section>
+
+<section class="platform" id="platform"><div class="container"><div class="platform-intro"><div class="eyebrow">И это не только тесты</div><h2 class="display">Да, здесь можно тестировать.<br><span class="marker">И всё остальное тоже.</span></h2><p>Единая маркетинговая платформа для создания, управления и оптимизации цифрового опыта — от первой идеи до измеримого результата.</p><a class="button dark" href="#contact">Перейти к платформе</a></div>
+    <div class="feature-icons"><div class="feature-icon"><div class="icon-art"><div class="blob"></div></div><h4>Контент</h4><p>Создавайте и публикуйте быстрее.</p></div><div class="feature-icon"><div class="icon-art"><div class="blob"></div></div><h4>Эксперименты</h4><p>Проверяйте идеи на реальных данных.</p></div><div class="feature-icon"><div class="icon-art"><div class="blob"></div></div><h4>Персонализация</h4><p>Адаптируйте опыт под аудиторию.</p></div><div class="feature-icon"><div class="icon-art"><div class="blob"></div></div><h4>Аналитика</h4><p>Понимайте, что действительно работает.</p></div></div>
+</div></section>
+
+<section class="paths"><div class="container"><div class="section-title"><div class="eyebrow">Одна платформа</div><h2 class="display">Три пути к <span class="marker">росту</span></h2></div>
+    <div class="path-row"><div class="path-copy"><div class="eyebrow">01 / Создание</div><h3>Собирайте цифровой опыт быстрее</h3><p>Управляйте страницами, контентом и кампаниями в одном процессе. ИИ помогает с черновиками, рутинными задачами и качеством.</p></div><div class="path-art"><div class="cluster"><i class="bubble"></i><i class="bubble"></i><i class="bubble"></i><i class="bubble"></i></div></div></div>
+    <div class="path-row"><div class="path-copy"><div class="eyebrow">02 / Эксперименты</div><h3>Проверяйте больше идей без хаоса</h3><p>Запускайте A/B-тесты и персонализацию, сравнивайте варианты и превращайте результаты в понятные бизнес-решения.</p></div><div class="path-art"><div class="cluster"><i class="bubble"></i><i class="bubble"></i><i class="bubble"></i><i class="bubble"></i></div></div></div>
+    <div class="path-row"><div class="path-copy"><div class="eyebrow">03 / Агенты</div><h3>Автоматизируйте то, что тормозит команду</h3><p>Поручайте агентам подготовку контента, анализ, оптимизацию и рутинные операции — с контролем внутри единой платформы.</p></div><div class="path-art"><div class="cluster"><i class="bubble"></i><i class="bubble"></i><i class="bubble"></i><i class="bubble"></i></div></div></div>
+</div></section>
+
+<section class="stories" id="stories"><div class="container"><div class="section-title"><div class="eyebrow">Истории клиентов</div><h2 class="display">Истории <span class="marker">успеха</span></h2></div><div class="story-grid">
+    <article class="story-card"><div class="story-img"></div><div class="story-body"><strong>+50% конверсии</strong><p>Как бренд нашёл выигрышный пользовательский сценарий через быстрые эксперименты.</p></div></article>
+    <article class="story-card"><div class="story-img"></div><div class="story-body"><strong>−34% времени</strong><p>Маркетинговая команда ускорила публикацию кампаний и сократила ручные согласования.</p></div></article>
+    <article class="story-card"><div class="story-img"></div><div class="story-body"><strong>400+ тестов</strong><p>Команда масштабировала программу экспериментов без увеличения операционной нагрузки.</p></div></article>
+</div></div></section>
+
+<section class="cta-photo"><div class="container cta-content"><div class="eyebrow">Освободите место для идей</div><h2 class="display">Снова чувствуйте <span class="marker">рост</span></h2><div class="float-note">Меньше рутины. Больше смелых идей.</div><p>Optimizely объединяет технологии, процессы и ИИ, чтобы команда могла сосредоточиться на работе, которую хочется делать.</p><a class="button dark" href="#contact">Начать сейчас →</a></div></section>
+
+<section class="contact" id="contact"><div class="container contact-grid"><div class="contact-media"></div><form class="form-card" onsubmit="event.preventDefault(); alert('Спасибо! Это демонстрационная форма.');"><h3>Давайте расти вместе</h3><div class="form-grid"><div><label>Имя</label><input placeholder="Алексей"></div><div><label>Фамилия</label><input placeholder="Иванов"></div><div><label>Рабочая почта</label><input type="email" placeholder="name@company.ru"></div><div><label>Компания</label><input placeholder="Название компании"></div><div class="full"><label>Что вам интересно?</label><select><option>Создание контента</option><option>Эксперименты</option><option>Персонализация</option><option>ИИ-агенты</option></select></div><div class="full"><label>Комментарий</label><textarea placeholder="Расскажите о вашей задаче"></textarea></div></div><button class="button" type="submit">Получить демо →</button></form></div></section>
+
+<footer><div class="container"><div class="footer-grid"><div><div class="logo">Optimizely</div><p style="max-width:360px;font-size:13px;line-height:1.5">ИИ-платформа для маркетинга, которая помогает создавать, тестировать и улучшать цифровой опыт.</p><div class="newsletter"><strong>Получать идеи для роста</strong><div style="display:flex;gap:7px;margin-top:10px"><input style="flex:1;padding:9px;border:1px solid var(--ink);border-radius:5px;background:#fff" placeholder="email@company.ru"><button class="button" style="padding:8px 11px">→</button></div></div></div><div><h4>Продукты</h4><a href="#">CMS</a><a href="#">Эксперименты</a><a href="#">Персонализация</a><a href="#">ИИ-агенты</a></div><div><h4>Ресурсы</h4><a href="#">Кейсы</a><a href="#">Блог</a><a href="#">Документация</a><a href="#">Поддержка</a></div><div><h4>Компания</h4><a href="#">О нас</a><a href="#">Партнёры</a><a href="#">Карьера</a><a href="#">Контакты</a></div></div><div class="big-logo">Optimizely</div><div class="footer-bottom"><div>© 2026 Optimizely — демонстрационная HTML-копия</div><div>Конфиденциальность · Условия · Cookies</div></div></div></footer>
+</body>
+</html>
