@@ -115,6 +115,15 @@
     .mini-marker{background:var(--lime);border-radius:5px;padding:0 .12em;display:inline-block;margin-top:2px}
     .mini-p{font-size:11.5px;font-weight:600;opacity:.55;margin-top:10px;max-width:230px;line-height:1.4}
     .mini-btn{margin-top:16px;display:inline-block;background:var(--ink);color:#fff;font-size:11px;font-weight:800;padding:9px 16px;border-radius:999px}
+
+    .checklist{margin-top:14px;display:flex;flex-direction:column;gap:9px}
+    .checklist .row{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700}
+    .checklist .row .tick{flex:none;width:16px;height:16px;border-radius:50%;background:var(--lime);display:flex;align-items:center;justify-content:center;font-size:9px;color:var(--ink)}
+
+    .price-tag{margin-top:10px;display:flex;align-items:baseline;gap:6px;white-space:nowrap}
+    .price-tag .num{font-family:"Fraunces",serif;font-weight:700;font-size:26px;letter-spacing:-.02em}
+    .price-tag .cur{font-size:13px;font-weight:700;opacity:.55}
+    .free-badge{margin-top:12px;display:inline-block;background:rgba(95,174,30,.14);color:var(--lime-deep);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.03em;padding:6px 10px;border-radius:999px}
     .mini-card{
         position:absolute;
         right:16px; bottom:16px;
@@ -207,10 +216,14 @@
         <div class="laptop">
             <div class="screen">
                 <div class="inner">
-                    <div class="mini-eyebrow">6 лет опыта</div>
-                    <div class="mini-h">Сайт под<br>рекламу.<br><span class="mini-marker">За 1 день.</span></div>
-                    <div class="mini-p">Тексты, визуалы, Pixel и CRM — всё включено.</div>
-                    <div class="mini-btn">Запустить лендинг</div>
+                    <div class="mini-eyebrow">что входит</div>
+                    <div class="mini-h">Всё уже<br>внутри тарифа</div>
+                    <div class="checklist">
+                        <div class="row"><span class="tick">✓</span>3–5 страниц и тексты</div>
+                        <div class="row"><span class="tick">✓</span>10–20 рекламных визуалов</div>
+                        <div class="row"><span class="tick">✓</span>Meta Pixel на каждой странице</div>
+                        <div class="row"><span class="tick">✓</span>CRM и хостинг в подарок</div>
+                    </div>
                     <div class="mini-card">
                         <div class="bar"><span></span><span></span><span></span></div>
                         <div class="block"></div>
@@ -227,11 +240,11 @@
             <div class="frame">
                 <div class="pscreen">
                     <div class="notch"></div>
-                    <div class="mini-eyebrow">6 лет опыта</div>
-                    <div class="mini-h">Сайт под<br>рекламу.<br><span class="mini-marker">За 1 день.</span></div>
-                    <div class="mini-photo"></div>
-                    <div class="mini-p">Всё включено в тариф.</div>
-                    <div class="mini-btn">Запустить</div>
+                    <div class="mini-eyebrow">тариф стандарт</div>
+                    <div class="price-tag"><span class="num">50&nbsp;000</span><span class="cur">₸</span></div>
+                    <div class="mini-p">1 лендинг под оффер + Pixel и форма заявки.</div>
+                    <div class="free-badge">CRM и хостинг — бесплатно</div>
+                    <div class="mini-btn">Выбрать тариф</div>
                 </div>
             </div>
         </div>
